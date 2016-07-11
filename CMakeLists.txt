@@ -76,4 +76,15 @@ install (FILES
   src/hpp/corbaserver/box/robot.py
   src/hpp/corbaserver/box/__init__.py
   DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/box)
+
+install (FILES
+  src/hpp/corbaserver/skeleton/robot.py
+  src/hpp/corbaserver/skeleton/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/skeleton)
+
+install (FILES
+  src/hpp/corbaserver/articulated_ant/robot.py
+  src/hpp/corbaserver/articulated_ant/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/articulated_ant)
+
 SETUP_PROJECT_FINALIZE()
