@@ -87,4 +87,9 @@ install (FILES
   src/hpp/corbaserver/articulated_ant/__init__.py
   DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/articulated_ant)
 
+install (FILES
+  src/hpp/corbaserver/cubencvx/robot.py
+  src/hpp/corbaserver/cubencvx/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/cubencvx)
+
 SETUP_PROJECT_FINALIZE()

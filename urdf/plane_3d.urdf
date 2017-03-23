@@ -49,14 +49,15 @@
     <visual>
       <origin xyz="0 0 0"/>
       <geometry>
-        <box size="8 8 6" /> 
+        <mesh filename="package://animals_description/meshes/plane_3d.stl"/>
+        <!--<box size="8 8 6" />-->
       </geometry>
       <material name="Red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0"/>
       <geometry>
-        <box size="8 8 6" />
+        <mesh filename="package://animals_description/meshes/plane_3d.stl"/>
       </geometry>
     </collision>
   </link>

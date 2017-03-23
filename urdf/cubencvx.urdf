@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+        <robot name="robot_mesh">
+                <link name="base_link">
+                  <visual>
+                    <origin rpy="0 0 0" xyz="0 0 0"/>
+                    <geometry>
+                      <mesh filename="package://animals_description/meshes/cubencvx.dae"/>
+                    </geometry>
+                  </visual>
+                  <collision> 
+                    <origin rpy="0 0 0" xyz="0 0 0"/>
+                    <geometry>
+                      <mesh filename="package://animals_description/meshes/cubencvx.dae"/>
+                    </geometry>
+                  </collision> 
+                </link>
+        </robot>

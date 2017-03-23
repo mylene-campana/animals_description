@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot name="ant_test_urdf">
+
+<!-- Disable collision pairs of inner links -->
+<disable_collisions link1="Thorax" link2="LFThigh" />
+<disable_collisions link1="LFThigh" link2="LFShank" />
+
+</robot>

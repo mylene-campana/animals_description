@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<robot name="ant_test_urdf">
+
+  <link name="base_link"/>
+  <joint name="base_link_J" type="fixed">
+      <parent link="base_link"/>
+      <child link="Thorax"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+   </joint>
+
+  <link name="Thorax">
+      <inertial>
+         <origin rpy="0 0 0" xyz="0 0 0"/>
+         <mass value="1"/>
+         <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      </inertial>
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="package://animals_description/meshes/ant/Thorax.stl"/>
+         </geometry>
+      </visual>
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="package://animals_description/meshes/ant/Thorax.stl"/>
+         </geometry>
+      </collision>
+   </link>
+
+   <!-- L = left, R = right, F = front, M = middle, B = back -->
+   <link name="ThoraxLFThigh_J1"/>
+   <link name="ThoraxLFThigh_J2"/>
+   <link name="LFThigh">
+      <inertial>
+         <origin rpy="0 0 0" xyz="0 0 0"/>
+         <mass value="1"/>
+         <inertia ixx="0.0071027" ixy="-0.00059867" ixz="-2.9564e-05" iyy="0.0046194" iyz="6.6519e-05" izz="0.0080488"/>
+      </inertial>
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="package://animals_description/meshes/ant/LFThigh.stl"/>
+         </geometry>
+      </visual>
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="package://animals_description/meshes/ant/LFThigh.stl"/>
+         </geometry>
+      </collision>
+   </link>
+   
+   <link name="ThoraxLFShank_J1"/>
+   <link name="ThoraxLFShank_J2"/>
+   <link name="LFShank">
+      <inertial>
+         <origin rpy="0 0 0" xyz="0 0 0"/>
+         <mass value="1"/>
+         <inertia ixx="0.0071027" ixy="-0.00059867" ixz="-2.9564e-05" iyy="0.0046194" iyz="6.6519e-05" izz="0.0080488"/>
+      </inertial>
+      <visual>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="package://animals_description/meshes/ant/LFShank.stl"/>
+         </geometry>
+      </visual>
+      <collision>
+         <origin xyz="0 0 0" rpy="0 0 0"/>
+         <geometry>
+            <mesh filename="package://animals_description/meshes/ant/LFShank.stl"/>
+         </geometry>
+      </collision>
+   </link>
+
+   <!-- JOINTS -->
+
+   <!-- left side -->
+   <joint name="ThoraxLFThigh_J1" type="revolute">
+      <parent link="Thorax"/>
+      <child link="ThoraxLFThigh_J1"/>
+      <origin rpy="0 0 0" xyz="0.0743 -0.0223 0.1894"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="0" lower="-0.4" upper="0.4" velocity="1.0"/>
+   </joint>
+   <joint name="ThoraxLFThigh_J2" type="revolute">
+      <parent link="ThoraxLFThigh_J1"/>
+      <child link="ThoraxLFThigh_J2"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="0" lower="-0.4" upper="0.4" velocity="1.0"/>
+   </joint>
+   <joint name="LFThigh" type="revolute">
+      <parent link="ThoraxLFThigh_J2"/>
+      <child link="LFThigh"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="0" lower="-0.2" upper="0.2" velocity="1.0"/>
+   </joint>
+   <joint name="ThoraxLFShank_J1" type="revolute">
+      <parent link="LFThigh"/>
+      <child link="ThoraxLFShank_J1"/>
+      <origin rpy="0 0 0" xyz="0.1217 -0.0662 0.0268"/>
+      <axis xyz="1 0 0"/>
+      <limit effort="0" lower="-0.4" upper="0.4" velocity="1.0"/>
+   </joint>
+   <joint name="ThoraxLFShank_J2" type="revolute">
+      <parent link="ThoraxLFShank_J1"/>
+      <child link="ThoraxLFShank_J2"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit effort="0" lower="-0.4" upper="0.4" velocity="1.0"/>
+   </joint>
+   <joint name="LFShank" type="revolute">
+      <parent link="ThoraxLFShank_J2"/>
+      <child link="LFShank"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit effort="0" lower="-0.2" upper="0.2" velocity="1.0"/>
+   </joint>
+</robot>
